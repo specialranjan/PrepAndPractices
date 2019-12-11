@@ -48,7 +48,7 @@ namespace DataStructure.ArrayStrings
         }
 
         // Using Moore's Voting Algorithm
-        // T O(N*N)
+        // T O(N)+O(N) = O(N)
         // S O(1)
         static int FindMajorityCandidateUsingMooreVotingAlgo(int[] a, int n)
         {
