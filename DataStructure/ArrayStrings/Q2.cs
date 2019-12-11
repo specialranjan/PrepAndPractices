@@ -1,13 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using System.Text;
 
 namespace DataStructure.ArrayStrings
 {
     public partial class Questions
-    {
+    {        
         // Find the no of pairs in given array
-        public static void Q1()
+        public static void Q2()
         {
             const int SIZE = 9;
             int[] a = new int[SIZE] { 10, 20, 20, 10, 10, 30, 50, 10, 20 };
@@ -21,7 +22,7 @@ namespace DataStructure.ArrayStrings
             Array.Sort(a);
             int count = 0, occurrance = 0, noVisited = int.MaxValue;
             for (int i = 0; i < n; i++)
-            {                
+            {
                 for (int j = 0; j < n; j++)
                 {
                     if (a[j] != noVisited && a[i] == a[j])
@@ -39,6 +40,6 @@ namespace DataStructure.ArrayStrings
             }
 
             return count;
-        }        
+        }
     }
 }

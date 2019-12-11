@@ -11,7 +11,7 @@ namespace DataStructure.ArrayStrings
         // [3,3,4,5,3,3,6] -> 3;
         // [3,2,4,4,5,3,1,6] -> -1
         // [1,1,1,1,1,2,2,2,2,2] ->
-        public static void Q2()
+        public static void Q1()
         {
             const int SIZE = 8;
             int[] a = new int[SIZE] { 3, 2, 4, 4, 5, 3, 1, 6 };
