@@ -18,7 +18,7 @@ namespace Launcher.Console
     public class Program
     {
         static void Main(string[] args)
-        {
+        {            
             Questions.Q1();
             System.Console.ReadKey();
         }

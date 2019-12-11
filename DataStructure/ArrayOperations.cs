@@ -61,6 +61,21 @@ namespace DataStructure
             Console.WriteLine();
         }
 
+        public static void PrintFormatted(int[] a, int n, string msg)
+        {
+            Console.Write("{0} = [", msg);
+            for (int i = 0; i < n; i++)
+            {
+                if (i == n - 1)
+                    Console.Write("{0}", a[i]);
+                else
+                    Console.Write("{0}, ", a[i]);
+            }
+
+            Console.Write("]");
+            Console.WriteLine();
+        }
+
         //Write a function rotate(ar[], d, n) that rotates a[] of size n by d elements.
         public void Q1()
         {
