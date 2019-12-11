@@ -18,8 +18,8 @@ namespace Launcher.Console
     public class Program
     {
         static void Main(string[] args)
-        {            
-            Questions.Q1();
+        { 
+            Questions.Q2();
             System.Console.ReadKey();
         }
 
