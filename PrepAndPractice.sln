@@ -19,7 +19,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CredentialBasedTokenAuthDem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CredentialBasedTokenAuthDemo.Client", "CredentialBasedTokenAuthDemo.Client\CredentialBasedTokenAuthDemo.Client.csproj", "{5527402F-0716-4438-91E5-0A4E7C9E2626}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateAccessToken", "..\..\..\Documents\Documents\Project Documents\BDO\ConsoleApplication1\ConsoleApplication1\GenerateAccessToken.csproj", "{EA75E817-6E59-4B6F-8343-1E4EC32B931B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GenerateAccessToken", "GenerateAccessToken.Client\GenerateAccessToken.csproj", "{EA75E817-6E59-4B6F-8343-1E4EC32B931B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
