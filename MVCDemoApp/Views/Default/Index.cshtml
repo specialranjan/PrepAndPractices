@@ -1,0 +1,37 @@
+﻿<script type="text/javascript" src="~/Scripts/jquery-3.4.1.min.js"></script>
+@{
+    Layout = null;
+}
+
+
+    <script>
+    var serviceUrl = 'https://localhost:44336/api/product/list';
+
+    function sendRequest() {
+        $.ajax({
+            type: 'Get',
+            url: serviceUrl,
+            origin: 'https://localhost:44305'
+        }).done(function (data) {
+            $('#productList').text(data);
+        }).fail(function (jqXHR, textStatus, errorThrown) {
+            $('#productList').text(jqXHR.responseText || textStatus);
+        });
+    }
+    </script>
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <input type="button" value="Try it" onclick="sendRequest()" />
+    <div id="productList"></div>
+</head>
+<body>
+    <div>
+    </div>
+</body>
+</html>
