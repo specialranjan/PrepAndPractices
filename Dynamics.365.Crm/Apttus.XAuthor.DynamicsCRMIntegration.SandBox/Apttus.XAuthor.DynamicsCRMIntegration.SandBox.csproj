@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Apttus.XAuthor.DynamicsCRMIntegration.SandBox</RootNamespace>
+    <AssemblyName>Apttus.XAuthor.DynamicsCRMIntegration.SandBox</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Azure.KeyVault.Core">
+      <HintPath>..\..\..\SDK 2016\SDK\Bin\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Crm.Sdk.Proxy, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Users\anraheva\Documents\My Received Files\SDK_V9\SDK_V9\PluginRegistration\Microsoft.Crm.Sdk.Proxy.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Configuration">
+      <HintPath>..\..\..\SDK 2016\SDK\Bin\Microsoft.WindowsAzure.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage">
+      <HintPath>..\..\..\SDK 2016\SDK\Bin\Microsoft.WindowsAzure.Storage.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Xrm.Sdk, Version=8.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\Users\anraheva\Documents\My Received Files\SDK_V9\SDK_V9\PluginRegistration\Microsoft.Xrm.Sdk.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ABMSCRMAdapter.cs" />
+    <Compile Include="AccountAction.cs" />
+    <Compile Include="AnnotationAction.cs" />
+    <Compile Include="ApplicationObject.cs" />
+    <Compile Include="AzureBlobStorage.cs" />
+    <Compile Include="BlobHelper.cs" />
+    <Compile Include="BulkOperation.cs" />
+    <Compile Include="BulkRequestUpdate.cs" />
+    <Compile Include="Class1.cs" />
+    <Compile Include="ContactAction.cs" />
+    <Compile Include="CRMHelper.cs" />
+    <Compile Include="CustomLogics.cs" />
+    <Compile Include="DynamicsSolutionAndValidLicense.cs" />
+    <Compile Include="EmployeeAction.cs" />
+    <Compile Include="FieldLevelSecurityAction.cs" />
+    <Compile Include="MSCRMAdapterController.cs" />
+    <Compile Include="OpportunityAction.cs" />
+    <Compile Include="ProductAction.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ProxyCRMAction.cs" />
+    <Compile Include="QuoteAction.cs" />
+    <Compile Include="RestHelper.cs" />
+    <Compile Include="SecurityTeam.cs" />
+    <Compile Include="Service References\ServiceReference1\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="SolutionAction.cs" />
+    <Compile Include="TaskAction.cs" />
+    <Compile Include="ZipCodeAction.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\ProxyService.wsdl" />
+    <None Include="Service References\ServiceReference1\ProxyService.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Service References\ServiceReference1\ProxyService1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Apttus.Plugin.Opportunity\Apttus.Plugin.Opportunity.csproj">
+      <Project>{afcb34d2-612c-4364-ad7d-2d56d652dcc1}</Project>
+      <Name>Apttus.Plugin.Opportunity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Apttus.Plugin.QuoteProduct\Apttus.Plugin.QuoteProduct.csproj">
+      <Project>{6bd21dc4-79d3-4b8d-89e8-1f717d371469}</Project>
+      <Name>Apttus.Plugin.QuoteProduct</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Apttus.Plugin.Quote\Apttus.Plugin.Quote.csproj">
+      <Project>{3f8a060b-503f-411f-b0d8-8a5406081df1}</Project>
+      <Name>Apttus.Plugin.Quote</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BusinessEntity\BusinessEntity.csproj">
+      <Project>{3548c7e4-c010-4d07-9186-7ec2665e1512}</Project>
+      <Name>BusinessEntity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ServiceReference1\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\ProxyService.disco" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration91.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\configuration.svcinfo" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ServiceReference1\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

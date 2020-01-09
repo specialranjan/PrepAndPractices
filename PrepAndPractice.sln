@@ -49,6 +49,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CosmosDB", "CosmosDB", "{A2
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Asp.Net.Mvc.Operations.Crud.Sdk", "WebApps\CRUDOperations\NETFramework\CosmosDB\Asp.Net.Mvc.Operations.Crud.Sdk\Asp.Net.Mvc.Operations.Crud.Sdk.csproj", "{D8872045-7D7D-4EF8-B936-91F623388AFC}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dynamics.365.Crm", "Dynamics.365.Crm", "{C38AED03-355D-42BD-887C-E2BA249C0F0A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apttus.XAuthor.DynamicsCRMIntegration.SandBox", "Dynamics.365.Crm\Apttus.XAuthor.DynamicsCRMIntegration.SandBox\Apttus.XAuthor.DynamicsCRMIntegration.SandBox.csproj", "{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -115,6 +119,10 @@ Global
 		{D8872045-7D7D-4EF8-B936-91F623388AFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8872045-7D7D-4EF8-B936-91F623388AFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8872045-7D7D-4EF8-B936-91F623388AFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -133,6 +141,7 @@ Global
 		{BEB4220E-7076-49AE-B3F5-8685BA8F9F3B} = {C0C2F4B2-13CD-43BE-9687-8975E8968148}
 		{A2692F61-249B-4D22-A3AA-321085CF2402} = {216983D7-BE73-4A38-9DC2-36D85E873DBA}
 		{D8872045-7D7D-4EF8-B936-91F623388AFC} = {A2692F61-249B-4D22-A3AA-321085CF2402}
+		{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0} = {C38AED03-355D-42BD-887C-E2BA249C0F0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {912296AE-CBAE-450C-A1F3-ACF907BD2C26}
