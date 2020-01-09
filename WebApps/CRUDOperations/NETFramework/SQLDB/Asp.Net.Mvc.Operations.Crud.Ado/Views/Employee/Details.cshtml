@@ -1,0 +1,31 @@
+﻿@using System.Data
+@using System.Data.SqlClient
+@model System.Data.DataTable
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Employee Details</h2>
+<table class="table">
+    <tr>
+        <th>
+            Name
+        </th>
+        <td>@Model.Rows[0]["Name"]</td>
+    </tr>
+    <tr>
+        <th>
+            Age
+        </th>
+        <td>@Model.Rows[0]["Age"]</td>
+    </tr>
+    <tr>
+        <th>
+            Gender
+        </th>
+        <td>@Model.Rows[0]["Gender"]</td>
+    </tr>
+</table>
+@Html.ActionLink("Back to list","Index","Employee")
+

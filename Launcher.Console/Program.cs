@@ -15,6 +15,7 @@ using DataStructure.ArrayStrings;
 using DataStructure.BinarySearchTree;
 using System.CodeDom;
 using DataStructure.MultiDimentionalArray;
+using System.Runtime.InteropServices.ComTypes;
 
 namespace Launcher.Console
 {
@@ -22,11 +23,64 @@ namespace Launcher.Console
     {
         static void Main(string[] args)
         {
-            GeneralQuestions.Q1();
+            string[] sa = new string[2];
+            sa[0] = "10:00AM-12:30PM";
+            sa[1] = "01:00PM-03:00PM";
+
+            string[] times = new string[] { "12:15PM-02:00PM", "09:00AM-12:11PM", "02:02PM-04:00PM" };//new string[] { "12:15PM-02:00PM", "09:00AM-10:00AM", "10:30AM-12:00PM" };
+            System.Console.WriteLine(MostFreeTime(times));
+
+            //System.Console.WriteLine(time.ToString(@"hh\:mm"));
+
+            //GeneralQuestions.Q1();
             System.Console.ReadKey();
         }
 
-        
+        public static string MostFreeTime(string[] strArr)
+        {
+
+            TimeSpan longestTimeDiff = TimeSpan.Zero;
+            List<DateTime> eventTimeList = new List<DateTime>();
+            //DateTime fstartTime, fendTime;
+
+            for (int i=0;i<strArr.Length-1;i++)
+            {
+                string[] eventTimes = strArr[i].Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                DateTime fstartTime = Convert.ToDateTime(eventTimes[0]); 
+                DateTime fendTime = Convert.ToDateTime(eventTimes[1]);
+
+                eventTimes = strArr[i+1].Split(new char[] { '-' }, StringSplitOptions.RemoveEmptyEntries);
+                DateTime sstartTime = Convert.ToDateTime(eventTimes[0]);
+                DateTime sendTime = Convert.ToDateTime(eventTimes[1]);
+
+                TimeSpan timeDiff = sstartTime.Subtract(fendTime);
+                if (longestTimeDiff == TimeSpan.Zero)
+                    longestTimeDiff = timeDiff;
+                else
+                {
+                    if (longestTimeDiff < timeDiff)
+                    {
+                        longestTimeDiff = timeDiff;
+                    }
+                }
+            }
+
+            //eventTimeList.Sort();
+            //longestTimeDiff = eventTimeList[2].Subtract(eventTimeList[1]);
+            //int i = 0;
+            //TimeSpan timeDiff;
+            //for (; i < eventTimeList.Count - 1; i++)
+            //{
+            //    timeDiff = eventTimeList[i + 2].Subtract(eventTimeList[i+1]);
+            //    if (timeDiff > longestTimeDiff)
+            //    {
+            //        longestTimeDiff = timeDiff;
+            //    }
+            //}
+
+            return longestTimeDiff.ToString(@"hh\:mm");
+
+        }
 
         public static long getNumber()
         {
