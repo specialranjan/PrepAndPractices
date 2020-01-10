@@ -24,59 +24,105 @@ namespace Asp.Net.Mvc.Operations.Crud.Ado
             this.command.CommandType = CommandType.Text;
             this.adapter = new SqlDataAdapter();
             table = new DataTable();
-            this.connection.Open();
+            //this.connection.Open();
         }
 
         public DataTable GetTable(string queryText)
         {
-            //this.connection.Open();
+            this.connection.Open();
             this.command.CommandText = queryText;
             this.adapter.SelectCommand = this.command;
             this.adapter.Fill(this.table);
-            //this.connection.Close();
+            this.connection.Close();
             return this.table;
         }
 
         public DataTable GetTable(string queryText, SqlParameter sqlParameter)
         {
-            //this.connection.Open();
+            this.connection.Open();
             this.command.CommandText = queryText;
             this.command.Parameters.Add(sqlParameter);
             this.adapter.SelectCommand = this.command;
             this.adapter.Fill(this.table);
-            //this.connection.Close();
+            this.connection.Close();
             return this.table;
         }
 
         public DataTable GetTable(string queryText, SqlParameter[] sqlParameters)
         {
-            //this.connection.Open();
+            this.connection.Open();
             this.command.CommandText = queryText;
             this.command.Parameters.AddRange(sqlParameters);
             this.adapter.SelectCommand = this.command;
             this.adapter.Fill(this.table);
-            //this.connection.Close();
+            this.connection.Close();
             return this.table;
         }
 
         public int UpdateTable(string queryText, SqlParameter sqlParameter)
         {
+            this.connection.Open();
             this.command.CommandText = queryText;
-            this.command.Parameters.Add(sqlParameter);
-            //this.connection.Close();
-            return this.command.ExecuteNonQuery();
+            this.command.Parameters.Add(sqlParameter);            
+            int result = this.command.ExecuteNonQuery();
+            this.connection.Close();
+            return result;
         }
 
         public int UpdateTable(string queryText, SqlParameter[] sqlParameters)
         {
-            //this.connection.Open();
+            this.connection.Open();
             this.command.CommandText = queryText;
             this.command.Parameters.AddRange(sqlParameters);
-            //this.connection.Close();
-            return this.command.ExecuteNonQuery();
+            int result= this.command.ExecuteNonQuery();
+            this.connection.Close();
+            return result;
         }
 
-        ~SqlHelper()
+        public DataTable ExecuteProcedure(string filterBy, string filterByValue)
+        {
+            try
+            {
+                this.connection.Open();
+                this.command.CommandType = CommandType.StoredProcedure;
+                this.command.CommandText = "[dbo].[PROC_GETEMPLOYEE]";
+                this.command.Parameters.AddWithValue("@FILTERPARAM", filterBy);
+                this.command.Parameters.AddWithValue("@FILTERPARAM_VALUE", filterByValue);
+                this.adapter.SelectCommand = this.command;
+                this.adapter.Fill(this.table);
+                return this.table;
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.ClearObjects();
+            }
+        }
+
+        public int ExecuteNonQuery(SqlParameter[] parameters)
+        {
+            try
+            {
+                this.connection.Open();
+                this.command.CommandType = CommandType.StoredProcedure;
+                this.command.CommandText = "[dbo].[PROC_UPDATEEMPLOYEE]";
+                this.command.Parameters.AddRange(parameters);
+                return this.command.ExecuteNonQuery();
+            }
+            catch (SqlException ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                this.ClearObjects();
+            }
+        }
+
+        private void ClearObjects()
         {
             this.connection.Close();
             if (this.connection != null)

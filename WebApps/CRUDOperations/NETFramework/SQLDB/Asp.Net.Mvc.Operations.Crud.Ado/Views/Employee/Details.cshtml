@@ -1,6 +1,7 @@
 ﻿@using System.Data
 @using System.Data.SqlClient
-@model System.Data.DataTable
+@using System.Collections.Generic
+@model Asp.Net.Mvc.Operations.Crud.Ado.Models.Employee
 @{
     ViewBag.Title = "Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -12,19 +13,19 @@
         <th>
             Name
         </th>
-        <td>@Model.Rows[0]["Name"]</td>
+        <td>@Model.Name</td>
     </tr>
     <tr>
         <th>
             Age
         </th>
-        <td>@Model.Rows[0]["Age"]</td>
+        <td>@Model.Age</td>
     </tr>
     <tr>
         <th>
             Gender
         </th>
-        <td>@Model.Rows[0]["Gender"]</td>
+        <td>@Model.SelectedGender</td>
     </tr>
 </table>
 @Html.ActionLink("Back to list","Index","Employee")

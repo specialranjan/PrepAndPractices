@@ -23,15 +23,6 @@ namespace Launcher.Console
     {
         static void Main(string[] args)
         {
-            string[] sa = new string[2];
-            sa[0] = "10:00AM-12:30PM";
-            sa[1] = "01:00PM-03:00PM";
-
-            string[] times = new string[] { "12:15PM-02:00PM", "09:00AM-12:11PM", "02:02PM-04:00PM" };//new string[] { "12:15PM-02:00PM", "09:00AM-10:00AM", "10:30AM-12:00PM" };
-            System.Console.WriteLine(MostFreeTime(times));
-
-            //System.Console.WriteLine(time.ToString(@"hh\:mm"));
-
             //GeneralQuestions.Q1();
             System.Console.ReadKey();
         }
@@ -96,6 +87,5 @@ namespace Launcher.Console
             }
             return decValue;
         }
-    }   
-    
+    }
 }

@@ -1,6 +1,6 @@
-﻿@using System.Data
-@using System.Data.SqlClient
-@model System.Data.DataTable
+﻿@model PagedList.IPagedList<Asp.Net.Mvc.Operations.Crud.Ado.Models.Employee>
+@using PagedList.Mvc
+<link href="~/Content/PagedList.css" rel="stylesheet" type="text/css" />
 
 @{
     ViewBag.Title = "Index";
@@ -15,35 +15,37 @@
 <table class="table">
     <tr>
         <th>
-            Name
+            @Html.ActionLink("Name", "Index", new { sortOrder = "Name" })
         </th>
         <th>
-            Age
+            @Html.ActionLink("Age", "Index", new { sortOrder = "Age" })
         </th>
         <th>
-            Gender
+            @Html.ActionLink("Gender", "Index", new { sortOrder = "Gender" })
         </th>
         <th></th>
     </tr>
 
-    @foreach (System.Data.DataRow item in Model.Rows)
+    @foreach (var item in Model)
     {
         <tr>
             <td>
-                @item["Name"]
+                @item.Name
             </td>
             <td>
-                @item["Age"]
+                @item.Age
             </td>
             <td>
-                @item["Gender"]
+                @item.SelectedGender
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { id = @item["Id"] }) |
-                @Html.ActionLink("Details", "Details", new { id = @item["Id"] }) |
-                @Html.ActionLink("Delete", "Delete", new { id = @item["Id"] })
+                @Html.ActionLink("Edit", "Edit", new { id = @item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = @item.Id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = @item.Id })
             </td>
         </tr>
     }
 
 </table>
+Page @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) of @Model.PageCount
+@Html.PagedListPager((PagedList.IPagedList)Model, page => Url.Action("Index", new { page, sortOrder = ViewBag.CurrentSortOrder }))
