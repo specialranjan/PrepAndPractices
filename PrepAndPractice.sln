@@ -53,6 +53,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Dynamics.365.Crm", "Dynamic
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Apttus.XAuthor.DynamicsCRMIntegration.SandBox", "Dynamics.365.Crm\Apttus.XAuthor.DynamicsCRMIntegration.SandBox\Apttus.XAuthor.DynamicsCRMIntegration.SandBox.csproj", "{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dynamics.Crm.Oprations.Crud", "Dynamics.365.Crm\Dynamics.Crm.Oprations.Crud\Dynamics.Crm.Oprations.Crud.csproj", "{B8989479-B7C1-4CAA-8809-1AE99EDF0EFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8989479-B7C1-4CAA-8809-1AE99EDF0EFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8989479-B7C1-4CAA-8809-1AE99EDF0EFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8989479-B7C1-4CAA-8809-1AE99EDF0EFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8989479-B7C1-4CAA-8809-1AE99EDF0EFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -142,6 +148,7 @@ Global
 		{A2692F61-249B-4D22-A3AA-321085CF2402} = {216983D7-BE73-4A38-9DC2-36D85E873DBA}
 		{D8872045-7D7D-4EF8-B936-91F623388AFC} = {A2692F61-249B-4D22-A3AA-321085CF2402}
 		{B6E13F8F-61F9-45AD-8492-DD2D6F61EBA0} = {C38AED03-355D-42BD-887C-E2BA249C0F0A}
+		{B8989479-B7C1-4CAA-8809-1AE99EDF0EFC} = {C38AED03-355D-42BD-887C-E2BA249C0F0A}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {912296AE-CBAE-450C-A1F3-ACF907BD2C26}
