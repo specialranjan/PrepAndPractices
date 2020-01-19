@@ -1,12 +1,66 @@
-﻿
-using System;
-using DataStructure.LinkedList;
-
-namespace DataStructure
+﻿namespace DataStructure
 {
+    using System;
+
     public class SinglyLinkedList
     {
+        public class Node
+        {
+            public int data;
+            public Node next;
+
+            public Node(int data)
+            {
+                this.data = data;
+                next = null;
+            }
+        }
+
         public Node head;
+
+        public void Swap(char x, char y)
+        {
+            // Nothing to do if x and y are same  
+            if (x == y)
+                return;
+
+            // Search for x (keep track of prevX and CurrX)  
+            Node currX = this.head, prevX = null;
+            while (currX != null && currX.data != x)
+            {
+                prevX = currX;
+                currX = currX.next;
+            }
+
+            // Search for y (keep track of prevY and currY)
+            Node currY = this.head, prevY = null;
+            while (currY != null && currY.data != y)
+            {
+                prevY = currY;
+                currY = currY.next;
+            }
+
+            // If either x or y is not present, nothing to do  
+            if (currX == null || currY == null)
+                return;
+
+            // If x is not head of linked list  
+            if (prevX != null)
+                prevX.next = currY;
+            else //make y the new head  
+                head = currY;
+
+            // If y is not head of linked list  
+            if (prevY != null)
+                prevY.next = currX;
+            else // make x the new head  
+                head = currX;
+
+            // Swap next pointers  
+            Node temp = currX.next;
+            currX.next = currY.next;
+            currY.next = temp;
+        }
 
         public void Append(int data)
         {
@@ -92,6 +146,19 @@ namespace DataStructure
             Node new_node = new Node(data);
             new_node.next = this.head;
             head = new_node;
+        }
+
+        public void AddToTail(char data)
+        {
+            if (this.head == null)
+            {
+                this.head = new Node(data);
+                return;
+            }
+
+            Node node = this.head;
+            while (node.next != null) node = node.next;
+            node.next = new Node(data);
         }
     }
 }

@@ -13,7 +13,7 @@ namespace Launcher.Console.DataStructure.LinkedList
             cllist.Append(3);
             cllist.Append(4);
 
-            Node leafNode = cllist.GetLeafNode();
+            CircularLinkedList.Node leafNode = cllist.GetLeafNode();
             leafNode.next = cllist.head;
 
             cllist.Print();

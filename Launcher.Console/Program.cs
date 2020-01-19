@@ -16,6 +16,7 @@ using DataStructure.BinarySearchTree;
 using System.CodeDom;
 using DataStructure.MultiDimentionalArray;
 using System.Runtime.InteropServices.ComTypes;
+using System.Text.RegularExpressions;
 
 namespace Launcher.Console
 {
@@ -24,6 +25,15 @@ namespace Launcher.Console
         static void Main(string[] args)
         {
             //GeneralQuestions.Q1();
+            if (Regex.IsMatch("abc123", @"^[a-zA-Z0-9]+$"))
+            {
+                System.Console.WriteLine("String");
+            }
+            else
+            {
+                System.Console.WriteLine(" Not String");
+            }
+            
             System.Console.ReadKey();
         }
 

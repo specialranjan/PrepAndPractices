@@ -58,6 +58,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ThreadDemo", "ThreadDemo", "{8D986D5D-031D-4F8D-9073-2CB67F41276B}"
 	ProjectSection(SolutionItems) = preProject
 		Readme.txt = Readme.txt
+		ThreadDemos\Readme.txt = ThreadDemos\Readme.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContextSwitching", "ThreadDemos\ContextSwitching\ContextSwitching.csproj", "{5C284C8C-3433-41F2-9F2F-50A926C0BDB2}"

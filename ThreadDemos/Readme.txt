@@ -6,8 +6,9 @@ Basic units of execution that are allocated processor time by an operating syste
 Sequence of program instructions that can be managed independently by a scheduler.
 Thread schedulers are part of the operation system.
 A process is an executing program or an application.
-Single Threaded program: Onlu one thread has full access to the process.
-Multithreaded program: Execution model allows multiple threads to coexist within the process.
+
+Single Threaded program: Only one thread has full access to the process.
+Multithreaded program: Execution model allows multiple threads to co-exist within the process.
 Threading is also called multithreading.
 Thread execute independently but share resources within the process.
 Complicated process of retuning value from a seperate thread.

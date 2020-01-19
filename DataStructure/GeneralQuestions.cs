@@ -12,11 +12,11 @@ namespace DataStructure
         public static void Q1()
         {
             string binaryNum = "0000011111";
-            Node root = CreateLinkedList(binaryNum);
+            SinglyLinkedList.Node root = CreateLinkedList(binaryNum);
             long decValue = ConvertBinaryToDecimal(root);
             Console.WriteLine("Binary number {0} decimal value is {1}", binaryNum, decValue);
         }
-        private static Node CreateLinkedList(string binaryNum)
+        private static SinglyLinkedList.Node CreateLinkedList(string binaryNum)
         {
             SinglyLinkedList list = new SinglyLinkedList();
             foreach (var d in binaryNum)
@@ -28,7 +28,7 @@ namespace DataStructure
             return list.head;
         }
 
-        private static long ConvertBinaryToDecimal(Node head)
+        private static long ConvertBinaryToDecimal(SinglyLinkedList.Node head)
         {
             StringBuilder nums = new StringBuilder();
             while (head != null)

@@ -16,7 +16,7 @@ namespace Launcher.Console.DataStructure.LinkedList
             sllist.Append(3);
             sllist.Append(4);
 
-            Node node = sllist.SearchNode(3);
+            SinglyLinkedList.Node node = sllist.SearchNode(3);
             sllist.InsertAfter(5, node);            
             sllist.InsertAtFront(6);
             sllist.Print();
@@ -45,7 +45,7 @@ namespace Launcher.Console.DataStructure.LinkedList
             list2.Print();
 
             SinglyLinkedList newList = new SinglyLinkedList();
-            Node l1 = list1.head, l2 = list2.head;
+            SinglyLinkedList.Node l1 = list1.head, l2 = list2.head;
             while (l1 != null && l2 != null)
             {
                 if (l1.data > l2.data)
@@ -88,16 +88,16 @@ namespace Launcher.Console.DataStructure.LinkedList
                 return;
             }
 
-            Node x = list1.head;
-            Node x_Prev = null;
+            SinglyLinkedList.Node x = list1.head;
+            SinglyLinkedList.Node x_Prev = null;
             for (int i = 1; i < k; i++)
             {
                 x_Prev = x;
                 x = x.next;
             }
 
-            Node y = list1.head;
-            Node y_Prev = null;
+            SinglyLinkedList.Node y = list1.head;
+            SinglyLinkedList.Node y_Prev = null;
             for (int i = 1; i < n - k + 1; i++)
             {
                 y_Prev = y;
@@ -109,8 +109,8 @@ namespace Launcher.Console.DataStructure.LinkedList
 
             if (y_Prev != null)
                 y_Prev.next = x;
-            
-            Node temp = x.next;
+
+            SinglyLinkedList.Node temp = x.next;
             x.next = y.next;
             y.next = temp;
 
@@ -138,7 +138,7 @@ namespace Launcher.Console.DataStructure.LinkedList
             sllist.Print();
             if (sllist.head != null)
             {
-                Node temp = sllist.head.next;
+                SinglyLinkedList.Node temp = sllist.head.next;
                 sllist.head = null;
                 sllist.head = temp;
             }
@@ -159,7 +159,7 @@ namespace Launcher.Console.DataStructure.LinkedList
             System.Console.WriteLine("Original list:");
             sllist.Print();
 
-            Node node = sllist.head;
+            SinglyLinkedList.Node node = sllist.head;
             while (node.next.next != null)
             {
                 node = node.next;
@@ -189,7 +189,7 @@ namespace Launcher.Console.DataStructure.LinkedList
             int n = sllist.NodeCount(), k = 3;
             if (k > n) return;
 
-                Node x = sllist.head;
+            SinglyLinkedList.Node x = sllist.head;
                 System.Console.WriteLine("i  x");
                 for (int i = 0; i < k; i++)
                 {                    
