@@ -63,8 +63,8 @@
                 Node n = b.next;
                 Node p = b.prev;
 
-                b.prev = a.prev;
                 b.next = a.next;
+                b.prev = a.prev;
 
                 a.prev = p;
                 a.next = n;
