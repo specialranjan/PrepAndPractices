@@ -5,8 +5,11 @@ namespace CShapQuestions
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Net.Http;
     using System.Reflection.Emit;
+    using System.Threading.Tasks;
     using CSharpQuestions.Lib;
+    using System.Threading;
 
     enum TaskStatus
     {
@@ -226,6 +229,11 @@ namespace CShapQuestions
             longRunningTask.Start(new CallbackDelegate(MyCallbackMthod));
         }
 
+        public static void ArrayVsList()
+        {
+            Array array = Array.CreateInstance(typeof(Int64), 5);
+        }
+
         private static void MyCallbackMthod(LongRunningTask t, TaskStatus status)
         {
             Console.WriteLine("The task status is {0}", status);
@@ -233,6 +241,9 @@ namespace CShapQuestions
 
         // what is the difference between IComparable and IComparer
         // What is extension methods
+
+        // What is the use of ConfigureAwait
+        
 
         private dynamic GetCount(string type)
         {
