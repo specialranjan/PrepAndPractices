@@ -5,11 +5,17 @@ namespace CShapQuestions
     using System;
     using System.Collections;
     using System.Collections.Generic;
+    using System.Collections.Specialized;
+    using System.Configuration;
     using System.Net.Http;
     using System.Reflection.Emit;
     using System.Threading.Tasks;
     using CSharpQuestions.Lib;
     using System.Threading;
+    using System.Text;
+    using System.Data.SqlClient;
+    using System.Data;
+    using System.Globalization;
 
     enum TaskStatus
     {
@@ -234,6 +240,119 @@ namespace CShapQuestions
             Array array = Array.CreateInstance(typeof(Int64), 5);
         }
 
+        public static void CalculatePowerValue()
+        {
+            long baseValue = 10, powerValue = 10;
+            StringBuilder sb = new StringBuilder();
+            if (powerValue > 0)
+            {
+                sb.Append("1");
+                for (int i = 0; i < powerValue; i++)
+                    sb.Append("0");
+                Console.WriteLine("{0} power {1} is : {2}", baseValue, powerValue, sb);
+            }
+
+            powerValue = 0;
+            if (powerValue == 0)
+                Console.WriteLine("{0} power {1} is : {2}", baseValue, powerValue, 1);
+
+            powerValue = -2;
+            if (powerValue < 0)
+            {
+                sb.Clear();
+                sb.Append("0.");
+                for (int i = 0; i > powerValue+1; i--)
+                {
+                    sb.Append("0");
+                }
+                sb.Append("1");
+                Console.WriteLine("{0} power {1} is : {2}", baseValue, powerValue, sb);
+            }
+        }
+
+        public static void PrintOrgEmployeeHirechy()
+        {
+            var con = new SqlConnection("Data Source=localhost;Initial Catalog=ContosoDb;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+            var cmd = new SqlCommand();
+            cmd.Connection = con;
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "PROC_GETEMPLOYEE";
+            var adapter = new SqlDataAdapter(cmd);
+            var employees = new DataTable();
+            con.Open();
+            adapter.Fill(employees);
+            con.Close();
+
+            var parentStack = new Stack<Employee>();
+            var parent = default(Employee);
+            var prevNode = default(Employee);
+            var rootNodes = new List<Employee>();
+
+            foreach (DataRow row in employees.Rows)
+            {
+                Int64 parentId = -1;
+                Int64.TryParse(Convert.ToString(row["ManagerId"]), out parentId);
+                var employee = new Employee() { 
+                    Id = Convert.ToInt64(row["EmployeeId"]), 
+                    Name = Convert.ToString(row["EmployeeName"]), 
+                    ParentId = parentId >= 0 ? (Int64?)parentId : null 
+                };
+
+                if (parent == null || employee.ParentId == null)
+                {
+                    rootNodes.Add(employee);
+                    parent = employee;
+                }
+                else if (employee.ParentId == parent.Id)
+                {
+                    if (parent.Childrens == null)
+                        parent.Childrens = new List<Employee>();
+
+                    parent.Childrens.Add(employee);
+                }
+                else if (employee.ParentId == prevNode.Id)
+                {
+                    parentStack.Push(parent);
+                    parent = prevNode;
+                    if (parent.Childrens == null)
+                        parent.Childrens = new List<Employee>();
+
+                    parent.Childrens.Add(employee);
+                }
+                else
+                {
+                    var parentFound = false;
+
+                    while (parentStack.Count > 0 && parentFound == false)
+                    {
+                        parent = parentStack.Pop();
+                        if (employee.ParentId != null && employee.ParentId.Value == parent.Id)
+                        {
+                            parent.Childrens.Add(employee);
+                            parentFound = true;
+                        }
+                    }
+
+                    if (parentFound == false)
+                    {
+                        rootNodes.Add(employee);
+                        parent = employee;
+                    }
+                }
+
+                prevNode = employee;
+            }
+
+            foreach (var e in rootNodes)
+            {
+                Console.WriteLine("{0}", e.Name);
+                foreach (var c in e.Childrens)
+                {
+                    Console.WriteLine("\t{0}", c.Name);
+                }
+            }
+        }
+
         private static void MyCallbackMthod(LongRunningTask t, TaskStatus status)
         {
             Console.WriteLine("The task status is {0}", status);
@@ -312,6 +431,18 @@ namespace CShapQuestions
                 yield return new Galaxy { Name = "Milky Way", MegaLightYears = 0 };
                 yield return new Galaxy { Name = "Andromeda", MegaLightYears = 3 };
             }
+        }
+    }
+
+    class Employee
+    {
+        public Int64 Id { get; set; }
+        public Int64? ParentId { get; set; }
+        public string Name { get; set; }
+        public IList<Employee> Childrens { get; set; }
+        public Employee()
+        {
+            this.Childrens = new List<Employee>();
         }
     }
 

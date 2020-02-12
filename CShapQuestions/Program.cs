@@ -5,7 +5,7 @@
     {
         static void Main(string[] args)
         {
-            
+            Questions.PrintOrgEmployeeHirechy();
             Console.ReadKey();
         }
     }
