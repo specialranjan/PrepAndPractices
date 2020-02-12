@@ -6,6 +6,7 @@ using Autofac;
 using Autofac.Integration.Mvc;
 using AutofacUsingInMvcApp.Services;
 using Common.Autofac;
+using Common.Caching;
 
 namespace AutofacUsingInMvcApp.Infrastructure
 {
@@ -32,7 +33,10 @@ namespace AutofacUsingInMvcApp.Infrastructure
 				.As<ITestService>()
 				.InstancePerDependency();
 
-
+			autofacManager.Builder.RegisterType<DistributedCacheManager>()
+				.As<ICacheManager>()
+				.WithParameter("connectionString", "TestConnection")
+				.SingleInstance();
 
 			autofacManager.BuildContainer();
 			DependencyResolver.SetResolver(new AutofacDependencyResolver(autofacManager.Container));

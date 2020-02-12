@@ -212,6 +212,10 @@
       <Project>{e4108f24-2a0e-4211-91e2-f74aaa024b12}</Project>
       <Name>Common.Autofac</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Common.Caching\Common.Caching.csproj">
+      <Project>{10946d17-f08d-4e96-b92b-696b323a207e}</Project>
+      <Name>Common.Caching</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
